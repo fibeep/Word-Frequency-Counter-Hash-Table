@@ -46,7 +46,7 @@ class HashTable:
 
 
 
-  # 3️⃣ TODO: Complete the insert method.
+  # 3️⃣ : Complete the insert method.
 
   # Should insert a key value pair into the hash table, where the key is the word and the value is a 
   # counter for the number of times the word appeared. When inserting a new word in the hash table, 
@@ -72,8 +72,6 @@ class HashTable:
 
 
 
-
-
 # find the ll @ index --> check if empty, if yes, append 
 # if no check if key == key we want to append
 # if yes, increase value by 1
@@ -92,7 +90,13 @@ class HashTable:
   # erase: 2
 
   def print_key_values(self):
-    pass
+    
+    for ll in self.arr:
+      current = ll.head
+      while current != None:
+        if current.data:
+          print(f'{current.data[0]}: {current.data[1]}')
+        current = current.next
 
 
 
