@@ -27,7 +27,8 @@ class HashTable:
 
   # 2️⃣ : Create your own hash function.
 
-  # Hash functions are a function that turns each of these keys into an index value that we can use to decide where in our list each key:value pair should be stored. 
+  # Hash functions are a function that turns each of these keys into an index value 
+  # that we can use to decide where in our list each key:value pair should be stored. 
 
   def hash_func(self, key):
      # 1. Get the first letter of the key and lower case it
@@ -47,12 +48,36 @@ class HashTable:
 
   # 3️⃣ TODO: Complete the insert method.
 
-  # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
+  # Should insert a key value pair into the hash table, where the key is the word and the value is a 
+  # counter for the number of times the word appeared. When inserting a new word in the hash table, 
+  # be sure to check if there is a Node with the same key in the table already.
 
-  def insert(self, key, value):
-    pass
+  def insert(self, key, value=1):
+    
+    index = self.hash_func(key)
+    ll = self.arr[index]
+    
+    current = ll.head
+    
+    while current != None:
+      
+      if current.data[0] == key:
+        current.data[1] += value
+        return
+      
+      current = current.next
+
+    # This means the data was never found
+    ll.append([key, value])
 
 
+
+
+
+# find the ll @ index --> check if empty, if yes, append 
+# if no check if key == key we want to append
+# if yes, increase value by 1
+# if no, prepend
 
 
   # 4️⃣ TODO: Complete the print_key_values method.
