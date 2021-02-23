@@ -53,29 +53,22 @@ class HashTable:
   # be sure to check if there is a Node with the same key in the table already.
 
   def insert(self, key, value=1):
-    
+   # find the ll @ index --> check if empty, if yes, append
     index = self.hash_func(key)
     ll = self.arr[index]
     
     current = ll.head
-    
+    # if not, check if key == key we want to append
     while current != None:
-      
+      # if yes, increase value by 1
       if current.data[0] == key:
         current.data[1] += value
         return
       
       current = current.next
 
-    # This means the data was never found
+    # This means the data was never found (it was empty and thus appending occurs now)
     ll.append([key, value])
-
-
-
-# find the ll @ index --> check if empty, if yes, append 
-# if no check if key == key we want to append
-# if yes, increase value by 1
-# if no, prepend
 
 
   # 4️⃣ : Complete the print_key_values method.
@@ -90,12 +83,16 @@ class HashTable:
   # erase: 2
 
   def print_key_values(self):
-    
+    #loop through all the linked lists in the array
     for ll in self.arr:
       current = ll.head
+      # if the head of the linked list has information (is not None), print the first and second index
+      # of said information (key, value)
       while current != None:
         if current.data:
           print(f'{current.data[0]}: {current.data[1]}')
+        # move on to the next node in the linked list
+        
         current = current.next
 
 
