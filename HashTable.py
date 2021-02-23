@@ -13,9 +13,9 @@ class HashTable:
   # This method creates an array (list) of a given size and populates each of its elements with a LinkedList object.
 
   def create_arr(self, size):
-    
+    # Creates an array
     arr = []
-
+    # Makes various linked list objects and appends them to the array
     for i in range(size):
       new_list = LinkedList()
       arr.append(new_list)
@@ -92,7 +92,7 @@ class HashTable:
         if current.data:
           print(f'{current.data[0]}: {current.data[1]}')
         # move on to the next node in the linked list
-        
+
         current = current.next
 
 
